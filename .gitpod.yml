@@ -1,14 +1,9 @@
 image:
   file: .gitpod.Dockerfile
 
-# List the ports you want to expose and what to do when they are served. See https://www.gitpod.io/docs/43_config_ports/
-ports:
-- port: 3000
-
-# List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
-- init: echo 'init script' # runs during prebuild
-  command: echo 'start script'
+  - init: wget -qO - https://nim-lang.org/choosenim/init.sh | sh -s -- -y 
+    command: export PATH=/home/gitpod/.nimble/bin:$PATH
 vscode:
   extensions:
-    - kosz78.nim@0.6.3:w7n1wKOFVkz9yIqgRYT7lQ==
+    - nimsaem.nimvscode@0.1.10:VSqRP4riQfG8727UZn1mmw==
